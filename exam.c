@@ -1,11 +1,11 @@
   # include <stdio.h>
   # include <stdlib.h>
   
-    /* declaration des variables globales */
+    /* declaration of global variables */
     int nEtu;  
     int nNotes;
     
-    /* declaration des fonctions */
+    /* declaration of functions */
     void saisirInfo(); 
     void saisirNotes(int **p);  
     void afficher(int **p); 
@@ -26,28 +26,28 @@
        return 0;
     }
 
-    /* fonction qui saisit le nombre des etudiants et le nombre des notes */
+    /* fonction which input the number of the students and the marks */
     void saisirInfo()
     {
-       printf("nombre des etudiants:");
+       printf("numbers of students:");
        scanf("%d",&nEtu);
-       printf("nombre de notes:");
+       printf("numbers of the marks:");
        scanf("%d",&nNotes);
     }
    
-   /* fonction qui alloue le nombre des etudiants */
+   /* function qui alloue le nombre des etudiants */
    int ** allouer()
     {
        return (int**)malloc(nEtu* sizeof(int *));
     }
 
-   /* fonction qui saisit les notes de chaque etudiant */
+   /* function which allocate the marks of each students */
    void saisirNotes(int **notes)
    {
  int i,j;
       for(i=0;i<nEtu;i++)
         {
-           notes[i]=(int*)malloc(nNotes* sizeof(int )); // allocation dynamique du nombre des notes saisit
+           notes[i]=(int*)malloc(nNotes* sizeof(int )); // dynamic allocation
            printf("Etudiant numero %d\n",i+1);
            for(j=0;j<nNotes;j++)
              {
@@ -56,7 +56,7 @@
         }
    }
 
-   /*  fonction qui affiche des notes de chaque etudiant */
+   /*  function which print the result of the input */
    void afficher(int **notes)
    {
    int i,j;
@@ -71,7 +71,7 @@ printf("%d\n",notes[i][j]); //*(*(notes+i)+j);
 }
 }
 
-/* fonction qui libere les zones allouees */
+/* function which set free the allocated zone */
     void liberer(int **p){
 int i;
 for(i=0;i<nEtu;i++)
